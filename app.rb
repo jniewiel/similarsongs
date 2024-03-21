@@ -24,8 +24,8 @@ def build_api_url(method, artist, song_name)
 end
 
 get("/search_results") do
-  artist = params.fetch("artist").gsub(" ", "%20")
-  song_name = params.fetch("song_name").gsub(" ", "%20")
+  artist = params.fetch("artist")
+  song_name = params.fetch("song_name")
 
   api_correct = build_api_url("track.getcorrection", artist, song_name)
   raw_data_correct = HTTP.get(api_correct).to_s
