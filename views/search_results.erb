@@ -25,7 +25,7 @@
     <div class="similar-tracks">
       <% @final.each do |bundle| %>
         <% bundle.each do |track, track_link| %>
-          <% track.each do |song, artist| %>
+          <% track.each do |artist, song| %>
             <div class="similar-track">
               <dl>
                 <dt class="track-label">Similar Track</dt>
