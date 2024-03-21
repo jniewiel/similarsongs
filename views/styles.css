@@ -1,3 +1,19 @@
+/*-- /views/styles.css --*/
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: -webkit-radial-gradient(center, #1c6ea4, #0768a8, #114E75 100%);
+}
+
+img {
+  margin-top: 10px;
+  object-fit: cover;
+  border: 2px solid white;
+  align-self: center;
+}
+
 /*--------------------------------------------*/
 /* Search Page */
 
