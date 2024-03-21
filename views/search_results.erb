@@ -1,0 +1,43 @@
+<!--/views/search_results.erb-->
+
+<div class="main-title">
+  <h1 class="title">Similar Songs</h1>
+</div>
+
+<% if @corrected_artist.nil? || @corrected_song.nil? %>
+  <p class="error-message">Sorry, we couldn't find the song you provided.</p>
+<% else %>
+
+  <div class="track">
+    <p class="track-title">Track Info</p>
+
+    <p class="track-info"><%= @corrected_song.gsub("%20", " ") %> - <%= @corrected_artist.gsub("%20", " ") %></p>
+
+    <img src="<%= @cover if @cover != nil%>" alt="Cover album of the track (no cover available)" class="track-cover">
+    <p class="summary"><%= @summary.chop if @summary != nil %></p>
+
+  </div>
+
+  <%if @final == []%>
+    <p class="error-message">Sorry, no similar songs available.</p>
+  <%else%>
+    <div class="similar-tracks">
+      <% @final.each do |bundle| %>
+        <% bundle.each do |track, links| %>
+          <% track.each do |artist, song| %>
+            <div class="similar-track">
+              <dl>
+                <dt class="track-label">Similar Track</dt>
+                <dd><a href="<%= links %>" target="_blank"><%= song %> - <%= artist %></a></dd>
+              </dl>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<form class="search-link" onClick="/search">
+  <button type="submit">Search for another song</button>
+</form>

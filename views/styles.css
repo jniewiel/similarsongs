@@ -1,0 +1,272 @@
+/*--------------------------------------------*/
+/* Search Page */
+
+
+.main-title {
+  display: flex;
+ }
+ 
+ 
+ .title {
+  font-size: 35px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  box-shadow: 8px 8px 5px black;
+ }
+ 
+ 
+ .search-title {
+  display: flex;
+  padding-top: 20px
+ }
+ 
+ 
+ .track-search {
+  font-size: 18px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  border: 1.5px solid white;
+  padding: 5px 10px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+ 
+ 
+ }
+ 
+ 
+ .div-search-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 10px 15px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 8px 8px 5px black;
+ }
+ 
+ 
+ .artist-label {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+ }
+ 
+ 
+ .artist-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-bottom: 1px solid white;
+  padding: 2px;
+  width: 50%;
+  text-align: center;
+ }
+ 
+ 
+ .song-label {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25px;
+ }
+ 
+ 
+ .song-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-bottom: 1px solid white;
+  padding: 2px;
+  width: 50%;
+  text-align: center;
+ }
+ 
+ 
+ .search-div {
+  padding-top: 20px;
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+  justify-content: center;
+ }
+ 
+ 
+ .search-div button {
+  color: white;
+  padding: 8px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  background-color: #505050;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 8px 8px 5px black;
+  transition: all .2s ease-in-out;
+ }
+ 
+ 
+ .search-div button:hover {
+  transform: scale(1.2);
+ }
+ 
+ 
+ /*--------------------------------------------*/
+ /* Search Results */
+ 
+ 
+ .track {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 10px 15px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 8px 8px 5px black;
+ }
+ 
+ 
+ .track-title {
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 15px;
+ }
+ 
+ 
+ .track-info {
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  padding: 8px;
+  font-size: 24px;
+ }
+ 
+ 
+ .summary {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+ }
+ 
+ 
+ .similar-tracks {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 50%;
+ }
+ 
+ 
+ .similar-track {
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px auto;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  box-shadow: 8px 8px 5px black;
+  transition: all .2s ease-in-out;
+ }
+ 
+ 
+ .similar-track:hover {
+  transform: scale(1.05);
+ }
+ 
+ 
+ .track-label {
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+  justify-content: center;
+ }
+ 
+ 
+ a {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  color: #007bff;
+ }
+ 
+ 
+ a:hover {
+  text-decoration: underline;
+  color: #84dcff;
+  cursor: pointer;
+ }
+ 
+ 
+ .search-link {
+  padding-top: 20px;
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+  justify-content: center;
+ }
+ 
+ 
+ .search-link button {
+  color: white;
+  padding: 8px;
+  margin-top: 20px;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  background-color: #505050;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 8px 8px 5px black;
+  transition: all .2s ease-in-out;
+ }
+ 
+ 
+ .search-link button:hover {
+  transform: scale(1.2);
+ }
+ 
+ 
+ /*--------------------------------------------*/
+ /* Errors */
+ 
+ 
+ .error-message {
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px auto;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(80, 0, 0);
+  color: white;
+  box-shadow: 8px 8px 5px black;
+  transition: all .2s ease-in-out;
+ }
+ 

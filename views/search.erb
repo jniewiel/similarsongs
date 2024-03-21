@@ -1,0 +1,23 @@
+<!--/views/search.erb-->
+
+<div class="main-title">
+  <h1 class="title">Similar Songs</h1>
+</div>
+
+<div class="search-title">
+  <h1 class="track-search">Song Search</h1>
+</div>
+
+<div class="div-search-form">
+  <form class="form_search" action="/search" method="post">
+    <label class="artist-label" for="first_field">Enter an artist:</label>
+    <input class="artist-search" type="text" id="first_field" name="artist">
+
+    <label class="song-label" for="second_field">Enter a song from the artist:</label>
+    <input class="song-search" type="text" id="second_field" name="song_name">
+
+    <div class="search-div">
+      <button class="search-button" type="submit">Search!</button>
+    </div>
+  </form>
+</div>
