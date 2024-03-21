@@ -31,7 +31,7 @@ get("/search_results") do
   raw_data_correct = HTTP.get(api_correct).to_s
   parsed_data_correct = JSON.parse(raw_data_correct)
 
-  if parsed_data_correct.nil? || parsed_data_correct == {} || parsed_data_correct["corrections"] == nil
+  if parsed_data_correct.nil? || parsed_data_correct == {}
     erb(:search)
   else
     results_corrected = parsed_data_correct["corrections"]["correction"]["track"]
