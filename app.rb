@@ -31,12 +31,16 @@ get("/search_results") do
   raw_data_correct = HTTP.get(api_correct).to_s
   parsed_data_correct = JSON.parse(raw_data_correct)
 
-  if parsed_data_correct.nil? || parsed_data_correct == {}
-    erb(:search)
+  # test
+  if parsed_data_correct.nil? || parsed_data_correct == {} || parsed_data_correct["correction"].nil? || parsed_data_correct["correction"]["corrected"].nil?
+    @results_corrected = parsed_data_correct["corrections"]
+    erb(:test)
+  # test
+  
   else
-    results_corrected = parsed_data_correct["corrections"]["correction"]["track"]
-    @corrected_artist = results_corrected["artist"]["name"].gsub("%20", "+")
-    @corrected_song = results_corrected["name"].gsub("%20", "+")
+    @results_corrected = parsed_data_correct["corrections"]["correction"]["track"]
+    @corrected_artist = results_corrected["artist"]["name"].gsub("+", "%20")
+    @corrected_song = results_corrected["name"].gsub("+", "%20")
 
     api_info = build_api_url("track.getinfo", @corrected_artist, @corrected_song)
     raw_data_info = HTTP.get(api_info).to_s
