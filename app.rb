@@ -24,16 +24,17 @@ def build_api_url(method, artist, song_name)
 end
 
 get("/search_results") do
-  artist = params.fetch("artist").gsub(" ", "%20")
-  song_name = params.fetch("song_name").gsub(" ", "%20")
+  # test
+  @artist = params.fetch("artist").gsub(" ", "%20")
+  @song_name = params.fetch("song_name").gsub(" ", "%20")
 
-  api_correct = build_api_url("track.getcorrection", artist, song_name)
-  raw_data_correct = HTTP.get(api_correct).to_s
-  parsed_data_correct = JSON.parse(raw_data_correct)
+  api_correct = build_api_url("track.getcorrection", @artist, @song_name)
+  @raw_data_correct = HTTP.get(api_correct).to_s
+  parsed_data_correct = JSON.parse(@raw_data_correct)
 
   # test
   if parsed_data_correct.nil? || parsed_data_correct == {} || parsed_data_correct["correction"].nil? || parsed_data_correct["correction"]["corrected"].nil?
-    @results_corrected = parsed_data_correct["corrections"]
+    @results_corrected = parsed_data_correct
     erb(:test)
   # test
   
