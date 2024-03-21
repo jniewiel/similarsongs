@@ -24,8 +24,8 @@ def build_api_url(method, artist, song_name)
 end
 
 get("/search_results") do
-  artist = params.fetch("artist")
-  song_name = params.fetch("song_name")
+  artist = params.fetch("artist").gsub(" ", "%20")
+  song_name = params.fetch("song_name").gsub(" ", "%20")
 
   api_correct = build_api_url("track.getcorrection", artist, song_name)
   raw_data_correct = HTTP.get(api_correct).to_s
@@ -35,8 +35,8 @@ get("/search_results") do
     erb(:search)
   else
     results_corrected = parsed_data_correct["corrections"]["correction"]["track"]
-    @corrected_artist = results_corrected["artist"]["name"]
-    @corrected_song = results_corrected["name"]
+    @corrected_artist = results_corrected["artist"]["name"].gsub("%20", "+")
+    @corrected_song = results_corrected["name"].gsub("%20", "+")
 
     api_info = build_api_url("track.getinfo", @corrected_artist, @corrected_song)
     raw_data_info = HTTP.get(api_info).to_s
