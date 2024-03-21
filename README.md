@@ -1,18 +1,13 @@
-# sinatra-template
+# Similar Songs
 
-Use this repository to create new Sinatra apps. 
+"Similar Songs" is a dynamic web application that recommends similar songs based on the user's request!
 
-Optionally, to use `ActiveRecord` for database operations, add to the `app.rb`:
+Once submitted, you are provided with the title, album cover, and a quick summary of your song & 5 similar songs recommended by Last.fm (each with their own links to Last.fm).
 
-```ruby
-require "sinatra/activerecord"
-```
+Enjoy!
 
-And in the `config/environment.rb` file add this code block:
+<h2>Operation</h2>
 
-```ruby
-configure do
-  # setup a database connection
-  set(:database, { adapter: "sqlite3", database: "db/development.sqlite3" })
-end
-```
+1. Go to the website.
+2. Enter artist name and song name in the fields provided.
+3. Press bottom button to submit form.
