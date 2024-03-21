@@ -29,7 +29,7 @@ get("/search_results") do
   @song_name = params.fetch("song_name").gsub(" ", "%20")
 
   @api_correct = build_api_url("track.getcorrection", @artist, @song_name)
-  @raw_data_correct = HTTP.get(api_correct).to_s
+  @raw_data_correct = HTTP.get(@api_correct).to_s
   parsed_data_correct = JSON.parse(@raw_data_correct)
 
   # test
