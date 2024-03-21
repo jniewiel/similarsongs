@@ -4,23 +4,25 @@ require "sinatra"
 require "sinatra/reloader"
 require "http"
 
+# ---------------------------------------------------------- #
 
 get("/") do
  redirect(:search)
 end
 
+# ---------------------------------------------------------- #
 
 get("/search") do
  erb(:search)
 end
 
+# ---------------------------------------------------------- #
 
 get("/search_results") do
- @artist = params.fetch("artist").gsub(" ", "%20")
- @song_name = params.fetch("song_name").gsub(" ", "%20")
+ @artist = params.fetch("artist").gsub(" ", "+")
+ @song_name = params.fetch("song_name").gsub(" ", "+")
 
 
- # ---------------------------------------------------------- #
  @api_correct = "https://ws.audioscrobbler.com/2.0/?method=track.getcorrection&artist=#{@artist}&track=#{@song_name}&api_key=#{ENV["LASTFM_API_KEY"]}&format=json"
 
 
@@ -39,7 +41,7 @@ get("/search_results") do
  end
 
 
- # ---------------------------------------------------------- #
+ # -----------------------------
  @api_info = "https://ws.audioscrobbler.com/2.0/?method=track.getinfo&artist=#{@corrected_artist}&track=#{@corrected_song}&api_key=#{ENV["LASTFM_API_KEY"]}&format=json"
 
 
@@ -72,7 +74,7 @@ get("/search_results") do
  end
 
 
- # ---------------------------------------------------------- #
+# -----------------------------
  api_search = "https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=#{@corrected_artist}&track=#{@corrected_song}&api_key=#{ENV["LASTFM_API_KEY"]}&format=json&limit=5"
 
 
@@ -104,6 +106,6 @@ get("/search_results") do
  end
 
 
- # ---------------------------------------------------------- #
+# -----------------------------
  erb(:search_results)
 end
