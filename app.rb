@@ -15,7 +15,7 @@ get("/search") do
 end
 
 
-post("/search") do
+get("/search_results") do
  @artist = params.fetch("artist").gsub(" ", "%20")
  @song_name = params.fetch("song_name").gsub(" ", "%20")
 
