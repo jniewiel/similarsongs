@@ -14,6 +14,62 @@
 
     <img src="<%= @cover if @cover != nil%>" alt="Cover album of the track (no cover available)" class="track-cover">
 
+    <% if @summary %>
+      <p class="summary"><%= @summary.chop %></p>
+    <% end %>
+  </div>
+
+  <% if @final.empty? %>
+    <p class="error-message">Sorry, no similar songs available.</p>
+  <% else %>
+    <div class="similar-tracks">
+      <% @final.each do |bundle| %>
+        <% bundle.each do |track, track_link| %>
+          <% track.each do |song, artist| %>
+            <div class="similar-track">
+              <dl>
+                <dt class="track-label">Similar Track</dt>
+                <dd><a href="<%= track_link %>" target="_blank"><%= song %> - <%= artist %></a></dd>
+              </dl>
+            </div>
+          <%end%>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<form class="search-div" >
+  <button class="search-button" onclick="history.go(-1)">Search for another song</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+<!-- ignore previous code  -->
+
+<% if false%>
+
+<div class="main-title">
+  <h1 class="title">Similar Songs</h1>
+</div>
+
+<% if @corrected_artist.nil? || @corrected_song.nil? %>
+<p class="error-message">Sorry, we couldn't find the song you provided.</p>
+<% else %>
+  <div class="track">
+    <p class="track-title">Track Info</p>
+
+    <p class="track-info"><%= @corrected_song.gsub("%20", " ") %> - <%= @corrected_artist.gsub("%20", " ") %></p>
+
+    <img src="<%= @cover if @cover != nil%>" alt="Cover album of the track (no cover available)" class="track-cover">
+
     <p class="summary"><%= @summary.chop if @summary != nil %></p>
   </div>
 
@@ -40,3 +96,5 @@
 <form class="search-div" >
   <button class="search-button" onclick="history.go(-1)">Search for another song</button>
 </form>
+
+<%end%>
